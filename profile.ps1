@@ -7,6 +7,8 @@ Import-Module PoshColor
 
 # Change the prompt from showing the full path
 function prompt {
-  $p ="PS: " + ((Get-Location).drive.name) +  "\...\" + (Split-Path -leaf -path (Get-Location))
+  $p = "PS: " + ((Get-Location).drive.name) + "\...\" + (Split-Path -leaf -path (Get-Location))
   "$p> "
 }
+
+New-Alias -Name "codei" code-insiders
