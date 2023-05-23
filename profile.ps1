@@ -29,6 +29,7 @@ function prompt {
     $p += & $GitPromptScriptBlock
   }
   "$p> "
+  $Host.UI.RawUI.WindowTitle = (Split-Path -path $p -leaf)  
 }
 
 function cwd {
