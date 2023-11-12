@@ -49,7 +49,7 @@
     }
   ],
   "transient_prompt": {
-    "foreground": "#ffffff",
+    "foreground": "#2bbd26",
     "style": "diamond",
     "trailing_diamond": "\ue0b0",
     "type": "time",
