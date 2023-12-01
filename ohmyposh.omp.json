@@ -5,20 +5,8 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#FFFFFF",
-          "background": "#1943cc",
-          "properties": {
-            "time_format": "15:04:05"
-          },
-          "style": "diamond",
-          "template": " {{ .CurrentDate | date .Format }} ",
-          "trailing_diamond": "\ue0b0",
-          "type": "time"
-        },
-        {
           "background": "#2bbd26",
           "foreground": "#0C212F",
-          "leading_diamond": "<transparent,#26BDBB>\ue0b0</>",
           "properties": {
             "folder_icon": "...",
             "folder_separator_icon": "<transparent> \ue0b1 </>",
@@ -60,6 +48,13 @@
       "type": "rprompt"
     }
   ],
+  "transient_prompt": {
+    "foreground": "#ffffff",
+    "style": "diamond",
+    "trailing_diamond": "\ue0b0",
+    "type": "time",
+    "template": "{{ now | date \"15:04:05\" }} --> "
+  },
   "console_title_template": "{{if .Root}} \u26a1 {{end}}{{.Folder | replace \"~\" \"🏠\"}} @ {{.HostName}}",
   "final_space": true,
   "version": 2
