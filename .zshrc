@@ -35,4 +35,6 @@ eval "$(oh-my-posh init zsh --config https://raw.githubusercontent.com/vilhei/Co
 
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+# Ctrl+Backspace deletes word. Dependening on system '^H' might not be right. Use "showkey -a" command to find out on your systesm correct symbol for ctrl+backspace
+bindkey '^H' backward-kill-word 
 
