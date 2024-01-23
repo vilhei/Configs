@@ -25,9 +25,11 @@ function Set-Git {
   git  $args
 }
 
-function time {
-  $v = (Invoke-Expression "$args")
-  Measure-Command { $v |  Out-Default }
+function time($block) {
+    $sw = [Diagnostics.Stopwatch]::StartNew()
+    &$block @args
+    $sw.Stop()
+    $sw.Elapsed
 }
 
 oh-my-posh init pwsh --config "https://raw.githubusercontent.com/vilhei/Configs/main/ohmyposh.omp.json" | Invoke-Expression
