@@ -124,3 +124,40 @@ https://extensions.gnome.org/
     - Behavior/Window Demands Attention Focus --> Enable
 - [vitals](https://extensions.gnome.org/extension/1460/vitals/)
 
+
+## Software
+
+### Rust
+Install rust
+
+```
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+```
+
+Install nightly
+```
+rustup toolchain install nightly --component rust-src
+```
+
+Install esp32-c3 target
+```
+rustup target add riscv32imc-unknown-none-elf
+```
+
+Install openssl
+```
+sudo dnf install openssl-devel
+```
+
+Install perl
+```
+sudo dnf install perl
+```
+
+
+Install espressif tools
+
+```
+cargo install espup
+espup install
+```
