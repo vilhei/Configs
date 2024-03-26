@@ -43,16 +43,18 @@ Select Meslo
 Change terminal font to `MesloLGM Nerd Font`
 
 ## Normal fedora settings
-- Turn off mouse acceleration
-
-## Appearance
-- Dark theme
-
-## Multitaskin
-- Hot Corner --> Disable
+- **Mouse & Touchpad**
+    - Turn off mouse acceleration
 
 
-### Keyboard shortcuts
+- **Appearance**
+    - Dark theme
+
+- **Multitasking**
+    - Hot Corner --> Disable
+
+
+- **Keyboard shortcuts**
 - Disable Accessibility/Turn screen reader on or off
 - Navigation/hide all normal windows --> Super+D
 - Navigation/switch windows --> alt+tab
@@ -94,3 +96,31 @@ Remove
 ```
 sudo dnf update
 ```
+
+## Gnome keybindings
+List all keybindings
+```
+gsettings list-recursively org.gnome.desktop.wm.keybindings
+```
+
+Change switching workspace up and down
+
+```
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['<Control><Alt><Shift>Down']"
+gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['<Control><Alt><Shift>Up']"
+```
+
+
+## Gnome Extensions
+https://extensions.gnome.org/
+
+- [Dash to dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+- [clipboard history](https://extensions.gnome.org/extension/4839/clipboard-history/)
+    - Change shortcut to Super+V
+- [launch new instance](https://extensions.gnome.org/extension/600/launch-new-instance/)
+- [just perfection](https://extensions.gnome.org/extension/3843/just-perfection/)
+    - Visibility/Activites button -->  Disable
+    - Visibility/Weather -->  Disable
+    - Behavior/Window Demands Attention Focus --> Enable
+- [vitals](https://extensions.gnome.org/extension/1460/vitals/)
+
