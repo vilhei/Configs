@@ -41,6 +41,9 @@ function time($block) {
   $sw.Elapsed
 }
 
+function which($block) {
+    (Get-Command $block).Path
+}
 
 Set-PSReadLineKeyHandler -Key '(', '{', '[' `
   -BriefDescription InsertPairedBraces `
