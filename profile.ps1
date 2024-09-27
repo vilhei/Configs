@@ -95,5 +95,8 @@ Set-PSReadLineKeyHandler -Key ')', ']', '}' `
   }
 }
 
+$OutputEncoding = [Console]::InputEncoding = [Console]::OutputEncoding =
+                    New-Object System.Text.UTF8Encoding
+
 oh-my-posh init pwsh --config "https://raw.githubusercontent.com/vilhei/Configs/main/ohmyposh.omp.json" | Invoke-Expression
 
