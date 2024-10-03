@@ -1,0 +1,23 @@
+// Put this file in ~/.config/helix/ and RENAME it to config.toml
+// If yanking (copying) and pasting to and from system clipboard does not work, try installing xsel package.
+// Check with "hx --health clipboard" that xsel is used.
+
+theme = "dark_plus"
+
+[editor]
+color-modes = true
+
+[editor.cursor-shape]
+normal = "block"
+insert = "bar"
+
+[editor.lsp]
+display-inlay-hints = true
+
+[editor.auto-save]
+"after-delay.enable" = true
+"after-delay.timeout" = 3000
+
+[keys.normal]
+"C-A-h" = ":toggle lsp.display-inlay-hints"
+
