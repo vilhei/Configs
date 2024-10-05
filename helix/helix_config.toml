@@ -6,6 +6,7 @@ theme = "dark_plus"
 
 [editor]
 color-modes = true
+bufferline = "always"
 
 [editor.cursor-shape]
 normal = "block"
@@ -19,5 +20,6 @@ display-inlay-hints = true
 "after-delay.timeout" = 3000
 
 [keys.normal]
+C-f = ":sh zellij run --floating -n 'yazi picker' --height 80% --width 80% -x 10% -y 10% -- /home/ville/.config/helix/yazi_to_helix.sh"
 "C-A-h" = ":toggle lsp.display-inlay-hints"
 
