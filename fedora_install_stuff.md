@@ -75,6 +75,8 @@ sudo dnf install gnome-tweaks
 ## Firefox 
 - Change theme to dark
 - 
+- Firefox can be slow to start -->  try changing hostname with `hostnamectl hostname "127.0.0.1 fedora`
+
 
 ### addons
 - Bitwarden
