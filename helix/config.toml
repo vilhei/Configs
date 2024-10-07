@@ -1,12 +1,17 @@
-// Put this file in ~/.config/helix/ and RENAME it to config.toml
-// If yanking (copying) and pasting to and from system clipboard does not work, try installing xsel package.
-// Check with "hx --health clipboard" that xsel is used.
+# Put this file in ~/.config/helix/ and RENAME it to config.toml
+# If yanking (copying) and pasting to and from system clipboard does not work, try installing xsel package.
+# Check with "hx --health clipboard" that xsel is used.
 
 theme = "dark_plus"
 
 [editor]
 color-modes = true
 bufferline = "always"
+
+# inline-diagnostics does not work with release 24.7 --> build from source to use
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "error"
 
 [editor.cursor-shape]
 normal = "block"
