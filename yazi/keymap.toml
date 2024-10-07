@@ -1,5 +1,5 @@
 [[manager.prepend_keymap]]
-on = "<C-d>"
+on = "<C-f>"
 run = "shell 'zellij action focus-next-pane' --confirm"
 # run = '''shell 'zellij action focus-next-pane' --confirm'''
 desc = "Switch to next zellij pane"

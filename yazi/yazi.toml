@@ -1,2 +1,7 @@
 [manager]
 ratio = [0,3,0]
+
+[opener]
+edit = [
+  { run = '~/.config/yazi/open_file.sh "$1"',block = true, desc ="Open file in a new zellij pane"},
+]
