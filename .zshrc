@@ -31,6 +31,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Can fix WSL GUI problems
+export MESA_D3D12_DEFAULT_ADAPTER_NAME=nvidia
+
+
 eval "$(oh-my-posh init zsh --config https://raw.githubusercontent.com/vilhei/Configs/main/ohmyposh.omp.json)"
 
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
