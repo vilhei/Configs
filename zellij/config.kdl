@@ -10,11 +10,11 @@ keybinds {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
-        bind "Ctrl v" {ToggleFloatingPanes;}
+        bind "Ctrl l" {ToggleFloatingPanes;}
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
-        bind "Ctrl v" {ToggleFloatingPanes;}
+        bind "Ctrl l" {ToggleFloatingPanes;}
     }
     resize {
         bind "Ctrl n" { SwitchToMode "Normal"; }
