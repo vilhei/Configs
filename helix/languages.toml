@@ -1,2 +1,10 @@
 [language-server]
 clangd = { command = "clangd", args = [ "--clang-tidy" ] }
+
+[[language]]
+name = "markdown"
+language-servers = ["marksman", "mdpls"]
+
+[language-server.mdpls]
+command = "mdpls"
+config = { markdown.preview.auto = true }
