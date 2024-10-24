@@ -17,6 +17,13 @@
           "template": " {{ .Path }} ",
           "trailing_diamond": "\ue0b0",
           "type": "path"
+        },{
+          "type": "python",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#100e23",
+          "background": "#906cff",
+          "template": "  {{ .Full }} "
         }
       ],
       "type": "prompt"
