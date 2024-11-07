@@ -1,7 +1,3 @@
-New-Alias -Name "gs" Get-GitStatus
-New-Alias -Name "gcom" Set-GitCommit
-New-Alias -Name "g" Set-Git
-
 Import-Module CompletionPredictor
 Import-Module PoshColor
 Import-Module posh-git
@@ -12,28 +8,12 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 Set-PSReadLineKeyHandler -Key Ctrl+d -Function SelectForwardWord
 Set-PSReadLineKeyHandler -Key Ctrl+d -Function SelectBackwardWord
 
+# Copy current directory to clipboard
 function cwd {
-  Set-Clipboard (Get-Location)
+    Set-Clipboard (Get-Location)
 }
 
-function Get-GitStatus {
-  git status $args
-}
-
-function Set-GitCommit {  
-  git commit $args
-}
-
-function Set-Git {
-  git  $args
-}
-
-# function time {
-#   $v = (Invoke-Expression "$args")
-#   Measure-Command { $v |  Out-Default }
-# }
-
-
+# Linux like command for timing command execution times
 function time($block) {
   $sw = [Diagnostics.Stopwatch]::StartNew()
   &$block @args
@@ -41,10 +21,12 @@ function time($block) {
   $sw.Elapsed
 }
 
+# Linux like command getting command path
 function which($block) {
     (Get-Command $block).Path
 }
 
+# When inserting parenthessis, brackets, etc. Auto fill the matching pair.
 Set-PSReadLineKeyHandler -Key '(', '{', '[' `
   -BriefDescription InsertPairedBraces `
   -LongDescription "Insert matching braces" `
@@ -77,6 +59,7 @@ Set-PSReadLineKeyHandler -Key '(', '{', '[' `
   }
 }
 
+# Inserts or skips matching pair
 Set-PSReadLineKeyHandler -Key ')', ']', '}' `
   -BriefDescription SmartCloseBraces `
   -LongDescription "Insert closing brace or skip" `
@@ -95,8 +78,9 @@ Set-PSReadLineKeyHandler -Key ')', ']', '}' `
   }
 }
 
+# Can be necessary to fix broken fonts? Required on work laptop atleast
 $OutputEncoding = [Console]::InputEncoding = [Console]::OutputEncoding =
                     New-Object System.Text.UTF8Encoding
 
+# Activate oh-my-posh using my template
 oh-my-posh init pwsh --config "https://raw.githubusercontent.com/vilhei/Configs/main/ohmyposh.omp.json" | Invoke-Expression
-
