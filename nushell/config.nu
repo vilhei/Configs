@@ -18,8 +18,7 @@
 #     config nu --doc | nu-highlight | less -R
 
 
-# use zoxide-completions.nu *
-source zoxide-completions.nu
+source ~/.zoxide.nu
 
 use std/log
 
@@ -31,8 +30,21 @@ let default_completer = {|spans|
     carapace $spans.0 nushell ...$spans | from json
 }
 
-let zoxide_completer = {|spans|
-    $spans | skip 1 | zoxide query -l ...$spans.1
+
+def "nu-complete zoxide path" [context: string] {
+    let parts = $context | split row " " | skip 1
+    {
+      options: {
+        sort: false,
+        completion_algorithm: substring,
+        case_sensitive: false,
+      },
+      completions: (^zoxide query --list --exclude $env.PWD -- ...$parts | lines),
+    }
+  }
+
+def --env --wrapped z [...rest: string@"nu-complete zoxide path"] {
+  __zoxide_z ...$rest
 }
 
 
@@ -42,11 +54,7 @@ let multiple_completers = {|spans|
     # let spans = (if $expanded_alias != null  {
     #     $spans | skip 1 | prepend ($expanded_alias | split words)
     # } else { $spans })
-    log error something
-    print PLEASE
     match $spans.0 {
-        z | zi => $zoxide_completer
-        __zoxide_z | __zoxide_zi => $zoxide_completer
         _ => $default_completer
     } | do $in $spans
 
@@ -58,5 +66,3 @@ $env.config.completions.external.completer = $multiple_completers
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
-
-source ~/.zoxide.nu
