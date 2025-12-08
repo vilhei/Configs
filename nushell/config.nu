@@ -62,7 +62,45 @@ let multiple_completers = {|spans|
 
 $env.config.completions.external.enable = true
 $env.config.completions.external.completer = $multiple_completers 
+$env.config.completions.algorithm = "fuzzy" 
+$env.config.completions.quick = false
 
+
+
+############################## MENUS ##############################
+$env.config.menus ++= [{
+    name: completion_menu
+    only_buffer_difference: false # Search is done on the text written after activating the menu
+    marker: "| "                  # Indicator that appears with the menu is active
+    type: {
+        layout: columnar          # Type of menu
+        columns: 4                # Number of columns where the options are displayed
+        col_width: 20             # Optional value. If missing all the screen width is used to calculate column width
+        col_padding: 2            # Padding between columns
+    }
+    style: {
+        text: green                   # Text style
+        selected_text: green_reverse  # Text style for selected option
+        description_text: yellow      # Text style for description
+    }
+}]
+
+
+$env.config.menus ++= [{
+    name: history_menu
+    only_buffer_difference: false # Search is done on the text written after activating the menu
+    marker: "History menu "                 # Indicator that appears with the menu is active
+    type: {
+        layout: list             # Type of menu
+        page_size: 20            # Number of entries that will presented when activating the menu
+    }
+    style: {
+        text: green                   # Text style
+        selected_text: green_reverse  # Text style for selected option
+        description_text: yellow      # Text style for description
+    }
+}]
+###################################################################
 
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
