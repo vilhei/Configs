@@ -55,3 +55,19 @@ formatter = { command = "prettier", args = ["--parser", "json"] }
 command = "mdpls"
 config = { markdown.preview.auto = true, markdown.preview.serveStatic = true}
 
+[language-server.tinymist]
+command = "tinymist"
+config = { preview.background.enabled = true, preview.background.args = [
+  "--data-plane-host=127.0.0.1:23635",
+  "--invert-colors=never",
+  "--open",
+] }
+
+[language-server.harper-ls]
+command = "harper-ls"
+args = ["--stdio"]
+
+[[language]]
+name = "typst"
+language-servers = ["tinymist", "harper-ls"]
+formatter = { command = "typstyle", args = ["--line-width=100", "--wrap-text"] }
